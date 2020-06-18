@@ -2,13 +2,14 @@
 import time, os, shutil, sys
 from PIL import Image
 
-path = os.getcwd()
 accepted_folder = "Accepted"
 rejected_folder = "Rejected"
-
-print(path)
+current_path = os.chdir(sys.argv[1])
+path = os.getcwd()
 
 def extractor():
+    print("Working path: ", path)
+    time.sleep(1.5)
     for images in os.listdir():
         
         if os.name == "posix":
