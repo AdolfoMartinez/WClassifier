@@ -8,7 +8,10 @@ current_path = os.chdir(sys.argv[1])
 path = os.getcwd()
 
 def extractor():
-    print("Working path: ", path)
+    print('''
+    Working path: {}
+    '''.format(path))
+    
     time.sleep(1.5)
     for images in os.listdir():
         
@@ -32,11 +35,11 @@ def extractor():
         #print(img.size[0], "x" ,img.size[1])
         
         if img.size[0] > img.size[1]:
-            print("{} <- Rejected.".format(images))
+            print("{} <- Rejected".format(images))
             img.close()
             shutil.move(full_image_path, rejected_folder)
         else:
-            print("{} <- Accepted.".format(images))
+            print("{} <- Accepted".format(images))
             img.close()
             shutil.move(full_image_path, accepted_folder)
         
